@@ -1,8 +1,9 @@
 import PokemonList from "./components/PokemonList";
 import TypeList from "./components/TypeList";
 import NavBar from "./components/NavBar";
+import Pokemon from "./components/Pokemon";
 /* import BottomLeftPicture from "./components/BottomLeftPicture"; */
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
@@ -15,6 +16,11 @@ function App() {
           <Route path="/types" exact>
             <TypeList />
           </Route>
+          <Switch>
+            <Route path="/pokemon/:id" exact>
+              <Pokemon />
+            </Route>
+          </Switch>
           {/* <BottomLeftPicture /> */}
         </div>
       </Router>

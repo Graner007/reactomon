@@ -1,4 +1,4 @@
-import Pokemon from "./Pokemon";
+import PokemonCard from "./PokemonCard";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
@@ -9,26 +9,15 @@ const PokemonList = () => {
     useEffect(() => {
       axios.get("https://pokeapi.co/api/v2/pokemon/")
         .then(response => {
-            console.log(response.data.results);
-          setPokemons(response.data.results);
+            setPokemons(response.data.results);
         })
         .catch(error => console.log(error));
-    });
-
-    useEffect(() => {
-        if (window.onscroll) {
-            axios.get("https://pokeapi.co/api/v2/pokemon/")
-            .then(response => {
-              setPokemons([...pokemons, response.data.next.results]);
-            })
-            .catch(error => console.log(error));
-        }
     });
 
     return (
         <div className="cards">
             { pokemons.map((pokemon) => (
-                <Pokemon pokemon={pokemon} />
+                <PokemonCard pokemon={pokemon} />
             )) }
         </div>
     )

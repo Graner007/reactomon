@@ -1,8 +1,24 @@
-const Pokemon = ({ pokemon }) => {
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams } from 'react-router-dom';
+
+const Pokemon = () => {
+
+    const [pokemon, setPokemon] = useState([]);
+    let { id } = useParams();
+
+    useEffect(() => {
+      axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+        .then(response => {
+            setPokemon(response.data);
+        })
+        .catch(error => console.log(error));
+    });
+
     return (
-        <div className="card">
-            {/* <img src={pokemon.url.sprites.frontDefault} alt="pokemon" style={{ width:'75px', height:'40px' }}/> */}
-            <h3>{ pokemon.name }</h3>
+        <div className="pokemon">
+            <h3>{ pokemon.id }</h3>
+            <p>{ pokemon.height }</p>
         </div>
     )
 }

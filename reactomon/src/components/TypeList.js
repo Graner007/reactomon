@@ -15,16 +15,6 @@ const TypeList = () => {
         .catch(error => console.log(error));
     });
 
-    useEffect(() => {
-        if (window.onscroll) {
-            axios.get("https://pokeapi.co/api/v2/type")
-            .then(response => {
-                setTypes([...types, response.data.next.results]);
-            })
-            .catch(error => console.log(error));
-        }
-    });
-
     return (
         <div className="cards">
             { types.map((type) => (

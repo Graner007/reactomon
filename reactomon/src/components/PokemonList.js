@@ -12,7 +12,7 @@ const PokemonList = () => {
             setPokemons(response.data.results);
         })
         .catch(error => console.log(error));
-    });
+    }, []);
 
     return (
         <div className="cards">

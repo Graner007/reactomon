@@ -13,10 +13,10 @@ const Pokemon = () => {
             setPokemon(response.data);
         })
         .catch(error => console.log(error));
-    });
+    }, []);
 
     return (
-        <div className="pokemon">
+        <div className="card" key={ pokemon.id }>
             <h3>{ pokemon.id }</h3>
             <p>{ pokemon.height }</p>
         </div>

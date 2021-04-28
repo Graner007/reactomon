@@ -1,26 +1,13 @@
 import Type from "./Type";
-import axios from "axios";
-import { useState, useEffect } from "react";
 
-const TypeList = () => {
-
-    const [types, setTypes] = useState([]);
-
-    useEffect(() => {
-      axios.get("https://pokeapi.co/api/v2/type")
-        .then(response => {
-            setTypes(response.data.results);
-        })
-        .catch(error => console.log(error));
-    }, []);
-
+const TypeList = ({ types }) => {
     return (
         <div className="cards">
-            { types.map((type) => (
-                <Type type={ type } />
+            { types.map((type, index) => (
+                <Type type={ type } index={ index } />
             )) }
         </div>
     )
 }
 
-export default TypeList
+export default TypeList;

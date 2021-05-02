@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import useAxiosGet from "./useAxiosGet";
+import useAxiosGet from "../useAxiosGet";
 
 const Pokemon = () => {
     let { id } = useParams();

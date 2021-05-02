@@ -7,7 +7,7 @@ const useAxiosGet = (url) => {
     useEffect(() => {
         axios.get(url)
           .then(response => {
-              setData(response.data.results);
+              setData(response.data);
         })
           .catch(error => console.log(error));
     }, [url]);
